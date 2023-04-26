@@ -915,3 +915,7 @@ jstring Context::toJavaString(JNIEnv* env, const JSValueConst& value) const {
   env->DeleteLocalRef(utf8BytesObject);
   return result;
 }
+
+void Context::setMaxStackSize(JNIEnv* env, jlong stackSize) {
+  JS_SetMaxStackSize(jsRuntime, stackSize);
+}

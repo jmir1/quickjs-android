@@ -54,6 +54,8 @@ public:
   std::string toCppString(JNIEnv* env, jstring string) const;
   jstring toJavaString(JNIEnv* env, const JSValueConst& value) const;
 
+  void setMaxStackSize(JNIEnv* env, jlong stackSize);
+
   JavaVM* javaVm;
   const jint jniVersion;
   JSRuntime *jsRuntime;

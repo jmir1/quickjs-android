@@ -112,3 +112,13 @@ Java_app_cash_quickjs_QuickJs_compile(JNIEnv* env, jobject thiz, jlong _context,
   }
   return context->compile(env, sourceCode, fileName);
 }
+
+extern "C" JNIEXPORT void JNICALL
+Java_app_cash_quickjs_QuickJs_setMaxStackSize(JNIEnv* env, jobject thiz, jlong _context, jlong stackSize) {
+  Context* context = reinterpret_cast<Context*>(_context);
+  if (!context) {
+    throwJavaException(env, "java/lang/NullPointerException", "Null QuickJs context - did you close your QuickJs?");
+    return;
+  }
+  context->setMaxStackSize(env, stackSize);
+}
