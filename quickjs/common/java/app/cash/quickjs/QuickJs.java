@@ -193,6 +193,12 @@ public final class QuickJs implements Closeable {
     }
   }
 
+  public void setMaxStackSize(@NonNull long stackSize) {
+    if (context != 0) {
+      setMaxStackSize(context, stackSize);
+    }
+  }
+
   private static native long createContext();
   private native void destroyContext(long context);
   private native Object evaluate(long context, String sourceCode, String fileName);
