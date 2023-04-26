@@ -20,12 +20,6 @@ jobs:
 
       - run: ./gradlew :quickjs:android:build
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: quickjs-jvm.jar
-          path: quickjs/jvm/build/libs/*.jar
-          if-no-files-found: error
-
       - uses: ffurrer2/extract-release-notes@v1
         id: release_notes
 
