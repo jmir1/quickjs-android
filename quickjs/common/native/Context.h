@@ -33,7 +33,7 @@ public:
 
   JsObjectProxy* getObjectProxy(JNIEnv*, jstring name, jobjectArray methods);
   void setObjectProxy(JNIEnv*, jstring name, jobject object, jobjectArray methods);
-  jobject eval(JNIEnv*, jstring source, jstring file);
+  jobject eval(JNIEnv*, jstring source, jstring file, int flags);
   jobject execute(JNIEnv*, jbyteArray byteCode);
   jbyteArray compile(JNIEnv*, jstring source, jstring file);
   typedef std::function<JSValueConst(Context*, JNIEnv*, jvalue)> JavaToJavaScript;

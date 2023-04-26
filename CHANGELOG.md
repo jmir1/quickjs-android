@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.9.4] - 20223-04-27
+
+### Added
+
+* You can now evaluate modules by setting `isModule` to true.
+
 ## [0.9.3] - 20223-04-26
 
 ### Added

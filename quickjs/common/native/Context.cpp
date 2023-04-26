@@ -326,12 +326,12 @@ Context::toJavaObject(JNIEnv* env, const JSValueConst& value, bool throwOnUnsupp
   return result;
 }
 
-jobject Context::eval(JNIEnv* env, jstring source, jstring file) {
+jobject Context::eval(JNIEnv* env, jstring source, jstring file, int flags) {
   std::string sourceCodeString = toCppString(env, source);
 
   const char* fileName = env->GetStringUTFChars(file, 0);
 
-  JSValue evalValue = JS_Eval(jsContext, sourceCodeString.c_str(), sourceCodeString.length(), fileName, 0);
+  JSValue evalValue = JS_Eval(jsContext, sourceCodeString.c_str(), sourceCodeString.length(), fileName, flags);
 
   env->ReleaseStringUTFChars(file, fileName);
 

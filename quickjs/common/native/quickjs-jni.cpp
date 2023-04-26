@@ -39,14 +39,16 @@ Java_app_cash_quickjs_QuickJs_evaluate__JLjava_lang_String_2Ljava_lang_String_2(
                                                                                     jobject type,
                                                                                     jlong context_,
                                                                                     jstring sourceCode,
-                                                                                    jstring fileName) {
+                                                                                    jstring fileName,
+                                                                                    jboolean module) {
   Context* context = reinterpret_cast<Context*>(context_);
   if (!context) {
     throwJavaException(env, "java/lang/NullPointerException",
                        "Null QuickJs context - did you close your QuickJs?");
     return nullptr;
   }
-  return context->eval(env, sourceCode, fileName);
+  int flags = module ? JS_EVAL_TYPE_MODULE : JS_EVAL_TYPE_GLOBAL;
+  return context->eval(env, sourceCode, fileName, flags);
 }
 
 extern "C" JNIEXPORT jlong JNICALL

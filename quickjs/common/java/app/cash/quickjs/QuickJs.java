@@ -57,6 +57,16 @@ public final class QuickJs implements Closeable {
   }
 
   /**
+   * Evaluate {@code script} as a module if isModule is true and return a result.
+   *
+   * @throws QuickJsException if there is an error evaluating the script.
+   */
+  @Nullable
+  public Object evaluate(@NonNull String script, @NonNull String fileName, boolean isModule) {
+    return evaluate(context, script, fileName, isModule);
+  }
+
+  /**
    * Evaluate {@code script} and return any result. {@code fileName} will be used in error
    * reporting.
    *
@@ -64,7 +74,7 @@ public final class QuickJs implements Closeable {
    */
   @Nullable
   public Object evaluate(@NonNull String script, @NonNull String fileName) {
-    return evaluate(context, script, fileName);
+    return evaluate(context, script, fileName, false);
   }
 
   /**
@@ -74,7 +84,7 @@ public final class QuickJs implements Closeable {
    */
   @Nullable
   public Object evaluate(@NonNull String script) {
-    return evaluate(context, script, "?");
+    return evaluate(context, script, "?", false);
   }
 
   /**
@@ -201,7 +211,7 @@ public final class QuickJs implements Closeable {
 
   private static native long createContext();
   private native void destroyContext(long context);
-  private native Object evaluate(long context, String sourceCode, String fileName);
+  private native Object evaluate(long context, String sourceCode, String fileName, boolean module);
   private native long get(long context, String name, Object[] methods);
   private native void set(long context, String name, Object object, Object[] methods);
   private native Object call(long context, long instance, Object method, Object[] args);
