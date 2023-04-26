@@ -1,5 +1,5 @@
 before_install:
-  - mkdir -p app/build/outputs/aar
-  - wget -O app/build/outputs/aar/android-release.aar https://github.com/jmir1/quickjs-android/releases/download/$VERSION/android-release.aar
+  - mkdir -p quickjs/android/build/outputs/aar
+  - wget -O quickjs/android/build/outputs/aar/android-release.aar https://github.com/jmir1/quickjs-android/releases/download/$VERSION/android-release.aar
 install:
   - ./gradlew :quickjs:android:publishBarPublicationToMavenLocal
