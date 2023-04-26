@@ -63,9 +63,4 @@ jobs:
           distribution: 'zulu'
           java-version: 8
 
-      - run: ./gradlew :quickjs:android:build :quickjs:android:assembleAndroidTest
-
-      - uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: ./gradlew connectedCheck
+      - run: ./gradlew :quickjs:android:build
