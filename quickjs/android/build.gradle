@@ -64,3 +64,29 @@ dependencies {
 def quickJsVersion() {
   return new File(projectDir, "../common/native/quickjs/VERSION").text.trim()
 }
+
+
+def getVersionName = { ->
+    return "0.9.3"
+}
+
+def getGroupId = { ->
+    return "com.github.jmir1"
+}
+
+
+task sourceJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId getGroupId()
+            version getVersionName()
+            artifact("$buildDir/outputs/aar/android-release.aar")
+            artifact(tasks["sourceJar"])
+        }
+    }
+}

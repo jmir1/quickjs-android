@@ -1,6 +1,10 @@
 # Change Log
 
-## [Unreleased]
+## [0.9.3] - 20223-04-26
+
+### Added
+
+* The engine now sets `maxStackSize` to 1MB by default.
 
 
 ## [0.9.2] - 2021-08-04
