@@ -35,7 +35,7 @@ Java_app_cash_quickjs_QuickJs_destroyContext(JNIEnv* env, jobject type, jlong co
 }
 
 extern "C" JNIEXPORT jobject JNICALL
-Java_app_cash_quickjs_QuickJs_evaluate__JLjava_lang_String_2Ljava_lang_String_2(JNIEnv* env,
+Java_app_cash_quickjs_QuickJs_evaluate__JLjava_lang_String_2Ljava_lang_String_2Z(JNIEnv* env,
                                                                                     jobject type,
                                                                                     jlong context_,
                                                                                     jstring sourceCode,
