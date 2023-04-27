@@ -16,6 +16,6 @@ include_directories(${JNI_INCLUDE_DIRS})
 file(GLOB_RECURSE sources "../common/native/*.c" "../common/native/*.cpp")
 
 add_library(quickjs SHARED ${sources})
-target_compile_definitions(quickjs PUBLIC CONFIG_VERSION="${QUICKJS_VERSION}")
+target_compile_definitions(quickjs PUBLIC CONFIG_VERSION="${QUICKJS_VERSION}" CONFIG_BIGNUM _GNU_SOURCE)
 
 target_link_libraries(quickjs)
