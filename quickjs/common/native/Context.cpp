@@ -22,6 +22,7 @@
 #include "JsMethodProxy.h"
 #include "ExceptionThrowers.h"
 #include "quickjs/quickjs.h"
+#include "quickjs/quickjs-libc.h"
 
 std::string getName(JNIEnv* env, jobject javaClass) {
   auto classType = env->GetObjectClass(javaClass);
@@ -81,6 +82,7 @@ Context::Context(JNIEnv* env)
                                                    "(Ljava/lang/String;Ljava/lang/String;)V")) {
   env->GetJavaVM(&javaVm);
   JS_SetRuntimeOpaque(jsRuntime, this);
+  js_std_add_helpers(jsContext, -1, NULL);
 }
 
 Context::~Context() {

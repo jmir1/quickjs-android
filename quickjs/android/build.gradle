@@ -67,7 +67,7 @@ def quickJsVersion() {
 
 
 def getVersionName = { ->
-    return "0.9.3"
+    return "0.9.5"
 }
 
 def getGroupId = { ->

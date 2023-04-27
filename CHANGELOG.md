@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.9.5] - 2023-04-27
+
+### Fixed
+
+* Normal QuickJS objects like console.log now work
+
 ## [0.9.4] - 20223-04-27
 
 ### Added

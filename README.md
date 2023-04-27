@@ -121,10 +121,10 @@ Log.d("Greeting", greeting);
 
 ```groovy
 repositories {
-  mavenCentral()
+  maven { url 'https://jitpack.io' }
 }
 dependencies {
-  implementation 'app.cash.quickjs:quickjs-android:0.9.2'
+  implementation 'com.github.jmir1:quickjs-jvm:0.9.5'
 }
 ```
 
@@ -158,10 +158,10 @@ dependencies {
 
 ```groovy
 repositories {
-  mavenCentral()
+  maven { url 'https://jitpack.io' }
 }
 dependencies {
-  implementation 'app.cash.quickjs:quickjs-jvm:0.9.2'
+  implementation 'com.github.jmir1:quickjs-jvm:0.9.5'
 }
 ```
 
